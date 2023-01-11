@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
+from rest_framework_simplejwt import views as jwt_views
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -33,4 +34,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path("spare_wallet/api/v1/", include("apps.user.urls"), name="user urls"),
+    path("spare_wallet/api/v1/auth/refresh_token", jwt_views.TokenRefreshView.as_view(), name="refresh_token"),
 ]   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -240,3 +240,16 @@ class SigninViewSet(APIView):
 
 
 signin_viewset = SigninViewSet.as_view()
+
+
+class MeViewSet(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        try:
+            return Response(data={"message":request.user.first_name})
+        except Exception as e:
+            print(f"{e} :: an error occured")
+            return Response(data={"message": "An error occured"})
+        
+me_viewset = MeViewSet.as_view()
