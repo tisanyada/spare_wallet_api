@@ -77,21 +77,21 @@ ROOT_URLCONF = "spare_wallet.urls"
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",
     "http://192.168.137.246:8000"
-    # "http://nama-api-production.up.railway.app"
-    # "https://nama-api-production.up.railway.app",
+    "http://sparewalletapi.up.railway.app"
+    "https://sparewalletapi.up.railway.app",
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    # "http://nama-api-production.up.railway.app"
-    # "https://nama-api-production.up.railway.app"
+    # "http://sparewalletapi.up.railway.app"
+    # "https://sparewalletapi.up.railway.app"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8000",
-    # "http://nama-api-production.up.railway.app"
-    # "https://nama-api-production.up.railway.app",
+    "http://sparewalletapi.up.railway.app"
+    "https://sparewalletapi.up.railway.app",
 ]
 
 
