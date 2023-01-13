@@ -76,7 +76,7 @@ ROOT_URLCONF = "spare_wallet.urls"
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",
-    "http://192.168.137.246:8000"
+    "http://192.168.43.124:8000"
     "http://sparewalletapi.up.railway.app"
     "https://sparewalletapi.up.railway.app",
 ]
@@ -90,6 +90,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8000",
+    "http://192.168.43.124:8000"
     "http://sparewalletapi.up.railway.app"
     "https://sparewalletapi.up.railway.app",
 ]
@@ -125,7 +126,7 @@ SIMPLE_JWT = {
         "Bearer",
         "JWT",
     ),
-    "ACCESS_TOKEN_LIFETIME": timedelta(seconds=20),
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=6),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "SIGNING_KEY": os.getenv("SIGNING_KEY"),
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",

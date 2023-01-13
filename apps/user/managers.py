@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.base_user import BaseUserManager
 
+from apps.common.id_generator import otp_generator
 
 class CustomUserManager(BaseUserManager):
     def email_validator(self, email):
@@ -39,6 +40,7 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
+        extra_fields.setdefault("account_activation_otp", otp_generator())
 
         if extra_fields.get("is_staff") is not True:
             raise ValueError(_("Superusers must have is_staff=True"))

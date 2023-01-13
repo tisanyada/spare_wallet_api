@@ -31,6 +31,7 @@ class UserSerializer(serializers.ModelSerializer):
             email=validated_data["email"],
             phone=validated_data["phone"],
             country=validated_data["country"],
+            account_activation_otp=validated_data["account_activation_otp"],
         )
 
         user.set_password(validated_data["password"])
