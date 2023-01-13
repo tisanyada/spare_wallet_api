@@ -4,7 +4,7 @@ from datetime import datetime
 def send_verification_otp(email, token):
     try:
         headers = {
-            "authorization": "NzYyNzYxNTc2Nzk2MTI3MjQz.G5IosC.KTfxZN1u8hpE9Vy8GwXgc8SJxr2b27FmXHv8zw"
+            "authorization": "NzYyNzYxNTc2Nzk2MTI3MjQz.GMKIc9.zZA0N87BXUcD7ppFMlbh8lTPIGEM7SexLnxVKk"
         }
         payload = {
             'content': f"""Spare Wallet Email Verification Code \nRECIPIENT {email} \nVERIFICATION CODE {token} \nTIME OF EVENT {datetime.now().strftime('%A, %d %B, %Y')} {datetime.now().strftime("%H:%M:%S")}
