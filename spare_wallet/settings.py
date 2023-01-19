@@ -76,8 +76,10 @@ ROOT_URLCONF = "spare_wallet.urls"
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",
-    "http://192.168.43.124:8000"
-    "http://sparewalletapi.up.railway.app"
+    "http://192.168.43.124:8000",
+    "http://sparewallet-api.onrender.com",
+    "https://sparewallet-api.onrender.com",
+    "http://sparewalletapi.up.railway.app",
     "https://sparewalletapi.up.railway.app",
 ]
 
@@ -90,8 +92,10 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8000",
-    "http://192.168.43.124:8000"
-    "http://sparewalletapi.up.railway.app"
+    "http://192.168.43.124:8000",
+    "http://sparewallet-api.onrender.com",
+    "https://sparewallet-api.onrender.com",
+    "http://sparewalletapi.up.railway.app",
     "https://sparewalletapi.up.railway.app",
 ]
 
