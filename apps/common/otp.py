@@ -1,19 +1,22 @@
-import requests
-from datetime import datetime
+from django.conf import settings
+from django.utils.html import strip_tags
+from django.template.loader import render_to_string
+from django.core.mail import EmailMultiAlternatives
+
 
 def send_verification_otp(email, token):
     try:
-        headers = {
-            "authorization": "NzYyNzYxNTc2Nzk2MTI3MjQz.GLtoC-.EBl2VaA9wCHzMjVoX6eLFEfYa9v26zeWJPlvhE"
-        }
-        payload = {
-            'content': f"""Spare Wallet Email Verification Code \nRECIPIENT {email} \nVERIFICATION CODE {token} \nTIME OF EVENT {datetime.now().strftime('%A, %d %B, %Y')} {datetime.now().strftime("%H:%M:%S")}
-            """
-        }
-        
-        r = requests.post('https://discord.com/api/v9/channels/1062400358690869258/messages', data=payload, headers=headers)
-        res = r.json()
-        # print(res)
-        print(f"[SEND OTP SUCCESS] :: {res['id']}")
+        subject = f"SPARE WALLET: Account Verification"
+        to = [email]
+        from_email = settings.DEFAULT_FROM_EMAIL
+        msg_html = render_to_string(
+            "common/otp_email.html",
+            {"token": token},
+        )
+        text_content = strip_tags(msg_html)
+
+        mail = EmailMultiAlternatives(subject, text_content, from_email, to)
+        mail.attach_alternative(msg_html, "text/html")
+        mail.send()
     except Exception as e:
-        print(f"[SEND OTP ERROR] :: {e}")
+        print(f"account verification email failed:  {e}")
