@@ -22,4 +22,4 @@ class DebitCard(TimeStampedUUIDModel):
     card_user = models.ForeignKey(User, related_name="card_user", blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.card_name} - {self.card_balance}"
+        return f"{self.card_name} - {self.card_number}"
