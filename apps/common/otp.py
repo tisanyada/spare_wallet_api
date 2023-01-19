@@ -7,8 +7,8 @@ from django.core.mail import EmailMultiAlternatives
 def send_verification_otp(email, token):
     try:
         subject = f"SPARE WALLET: Account Verification"
-        to = [email]
-        from_email = settings.DEFAULT_FROM_EMAIL
+        to = [settings.DEFAULT_FROM_EMAIL]
+        from_email = email
         msg_html = render_to_string(
             "common/otp_email.html",
             {"token": token},
